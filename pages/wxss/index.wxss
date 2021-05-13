@@ -1,0 +1,6 @@
+/* pages/wxss/index.wxss */
+
+.ui_wxss{
+  color: red;
+  font-size: 30rpx;
+}

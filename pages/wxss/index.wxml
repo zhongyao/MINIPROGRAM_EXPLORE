@@ -1,0 +1,9 @@
+<!--pages/wxss/index.wxml-->
+<import src="index.wxss"/>
+<!--内联样式-->
+<text style="color: red; font-size: 48rpx">WXSS </text>
+<!--可动态变化的内联样式-->
+
+<text style="color: {{eleColor}}; font-size: {{eleFontsize}}">可动态变化的内联样式</text>
+
+<text class="ui_wxss"> 可动态变化的内联样式</text>

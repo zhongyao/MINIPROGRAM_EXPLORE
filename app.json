@@ -1,10 +1,9 @@
 {
   "pages": [
+    "pages/wxss/index",
     "pages/wxml/index",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/item/item",
-    "pages/wxml/header"
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",

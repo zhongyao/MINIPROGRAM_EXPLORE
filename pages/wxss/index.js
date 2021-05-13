@@ -1,11 +1,12 @@
-// pages/item/item.js
+// pages/wxss/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+      eleColor: 'blue',
+      eleFontsize: '40rpx'
   },
 
   /**

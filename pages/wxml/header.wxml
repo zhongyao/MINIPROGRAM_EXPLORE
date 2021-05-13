@@ -1,2 +1,2 @@
 <!--pages/wxml/header.wxml-->
-<view> header </view>
+<view style="color: red; font-size: 48rpx"> header </view>
