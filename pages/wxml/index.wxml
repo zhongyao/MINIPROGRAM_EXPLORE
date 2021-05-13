@@ -1,0 +1,37 @@
+<!--pages/wxml/index.wxml-->
+<text>当前时间：{{time}}</text>
+<text> {{a===10 ? "变量a 等于 10" : "变量a 不等于 10"}}</text>
+<text> {{"hello " + name}}</text>
+
+<view wx:if="{{length > 5}}">1</view>
+<view wx:elif="{{length > 2}}">2</view>
+<view wx:else>3</view>
+
+<block wx:if="{{condition}}">
+  <view>view1</view>
+  <view>view2</view>
+</block>
+
+<!-- 在组件上使用 wx:for 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件。默认数组的当前项的下标变量名默认为 index，数组当前项的变量名默认为 item -->
+<view wx:for="{{array}}">
+  {{index}} : {{item.message}}
+</view>
+
+<!-- 使用 wx:for-item 指定数组当前元素的变量名，使用 wx:for-index 指定数组当前下标的变量名： -->
+<view wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName">
+{{idx}} : {{itemName.message}}
+</view>
+
+<!-- 类似 block wx:if ，也可以将 wx:for 用在 <block/> 标签上，以渲染一个包含多节点的结构块 -->
+<block wx:for="{{[1,2,3]}}">
+  <view>{{index}}: </view>
+  <view>{{item}} </view>
+</block>
+
+<!-- 如果列表中项目的位置会动态改变或者有新的项目添加到列表中，并且希望列表中的项目保持自己的特征和状态（如 <input/> 中的输入内容， <switch/> 的选中状态），需要使用 wx:key 来指定列表中项目的唯一的标识符。 -->
+<switch wx:for="{{objectArray}}" wx:key="unique" >{{item.id}}</switch>
+<button bindtap="switch"> Switch</button>
+<button bindtap="addToFront"> Add to the front</button>
+
+<switch wx:for="{{numberArray}}" wx:key="*this">{{item}}</switch>
+<button bindtap="addNumberToFront"> Add Number to the front </button>
