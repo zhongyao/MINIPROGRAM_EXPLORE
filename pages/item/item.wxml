@@ -1,0 +1,6 @@
+<!--pages/item/item.wxml-->
+<text>pages/item/item.wxml</text>
+
+<template name= "item_imp">
+  <text>{{text}}</text>
+</template>

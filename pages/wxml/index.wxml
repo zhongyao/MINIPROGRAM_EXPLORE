@@ -1,4 +1,8 @@
 <!--pages/wxml/index.wxml-->
+
+<!-- 引用 -->
+<import src="item.wxml"/>
+
 <text>当前时间：{{time}}</text>
 <text> {{a===10 ? "变量a 等于 10" : "变量a 不等于 10"}}</text>
 <text> {{"hello " + name}}</text>
@@ -41,7 +45,7 @@
 <template name="msgItem">
   <view>
     <text>{{index}}: {{msg}}</text>
-    <text>Time: {{time}}</text>
+    <text> Time: {{time}}</text>
   </view>
 </template>
 
@@ -60,3 +64,12 @@
 <block wx:for="{{[1,2,3,4,5]}}">
   <template is="{{item%2==0 ? 'even' : 'odd'}}" />
 </block>
+
+<!-- 引用方式：WXML提供了两种引用方式 import和include 
+需要注意的是： import 有作用域的概念，即只会 import 目标文件中定义的 template，而不会 import 目标文件中 import 的 template，简言之就是 import 不具有递归的特性。-->
+<template is="item_imp" data="{{text: 'forbar'}}"/>
+<!-- include 可以将目标文件中除了 <template/> <wxs/> 外的整个代码引入，相当于是拷贝到 include 位置 -->
+<include src="header.wxml"/>
+<view> body </view>
+<include src="footer.wxml"/>
+
