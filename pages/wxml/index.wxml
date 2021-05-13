@@ -19,7 +19,7 @@
 
 <!-- 使用 wx:for-item 指定数组当前元素的变量名，使用 wx:for-index 指定数组当前下标的变量名： -->
 <view wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName">
-{{idx}} : {{itemName.message}}
+  {{idx}} : {{itemName.message}}
 </view>
 
 <!-- 类似 block wx:if ，也可以将 wx:for 用在 <block/> 标签上，以渲染一个包含多节点的结构块 -->
@@ -29,9 +29,34 @@
 </block>
 
 <!-- 如果列表中项目的位置会动态改变或者有新的项目添加到列表中，并且希望列表中的项目保持自己的特征和状态（如 <input/> 中的输入内容， <switch/> 的选中状态），需要使用 wx:key 来指定列表中项目的唯一的标识符。 -->
-<switch wx:for="{{objectArray}}" wx:key="unique" >{{item.id}}</switch>
+<switch wx:for="{{objectArray}}" wx:key="unique">{{item.id}}</switch>
 <button bindtap="switch"> Switch</button>
 <button bindtap="addToFront"> Add to the front</button>
 
 <switch wx:for="{{numberArray}}" wx:key="*this">{{item}}</switch>
 <button bindtap="addNumberToFront"> Add Number to the front </button>
+
+
+<!-- WXML提供模板（template），可以在模板中定义代码片段，然后在不同的地方调用。使用 name 属性，作为模板的名字。然后在 <template/> 内定义代码片段 -->
+<template name="msgItem">
+  <view>
+    <text>{{index}}: {{msg}}</text>
+    <text>Time: {{time}}</text>
+  </view>
+</template>
+
+<template is="msgItem" data="{{...item}}"></template>
+
+<!-- ====== -->
+
+<template name="odd">
+  <view> odd</view>
+</template>
+
+<template name="even">
+  <view> even</view>
+</template>
+
+<block wx:for="{{[1,2,3,4,5]}}">
+  <template is="{{item%2==0 ? 'even' : 'odd'}}" />
+</block>
