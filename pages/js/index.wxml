@@ -1,2 +1,4 @@
 <!--pages/js/index.wxml-->
 <text>JS</text>
+<button bindtap="navigateBackPage">navigateBackPage</button>
+<button bindtap="redirectToPage">redirectToPage</button>

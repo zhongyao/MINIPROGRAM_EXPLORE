@@ -11,23 +11,23 @@
 <view wx:elif="{{length > 2}}">2</view>
 <view wx:else>3</view>
 
-<block wx:if="{{condition}}">
+<block wx:if="{{condition}}" wx:key="*this">
   <view>view1</view>
   <view>view2</view>
 </block>
 
 <!-- 在组件上使用 wx:for 控制属性绑定一个数组，即可使用数组中各项的数据重复渲染该组件。默认数组的当前项的下标变量名默认为 index，数组当前项的变量名默认为 item -->
-<view wx:for="{{array}}">
+<view wx:for="{{array}}" wx:key="*this">
   {{index}} : {{item.message}}
 </view>
 
 <!-- 使用 wx:for-item 指定数组当前元素的变量名，使用 wx:for-index 指定数组当前下标的变量名： -->
-<view wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName">
+<view wx:for="{{array}}" wx:for-index="idx" wx:for-item="itemName" wx:key="*this">
   {{idx}} : {{itemName.message}}
 </view>
 
 <!-- 类似 block wx:if ，也可以将 wx:for 用在 <block/> 标签上，以渲染一个包含多节点的结构块 -->
-<block wx:for="{{[1,2,3]}}">
+<block wx:for="{{[1,2,3]}}" wx:key="*this">
   <view>{{index}}: </view>
   <view>{{item}} </view>
 </block>
@@ -61,7 +61,7 @@
   <view> even</view>
 </template>
 
-<block wx:for="{{[1,2,3,4,5]}}">
+<block wx:for="{{[1,2,3,4,5]}}" wx:key="*this">
   <template is="{{item%2==0 ? 'even' : 'odd'}}" />
 </block>
 
@@ -73,3 +73,4 @@
 <view> body </view>
 <include src="footer.wxml"/>
 
+<button bindtap="navigateToPage">navigateNewPage</button>

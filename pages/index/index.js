@@ -20,6 +20,7 @@ Page({
     })
   },
   onLoad() {
+    console.log("index--->onLoad")
     if (wx.getUserProfile) {
       //setData其一般调用格式是 setData(data, callback)，其中data是由多个key: value构成的Object对象。
       this.setData({
@@ -29,6 +30,23 @@ Page({
       })
     }
   },
+
+  onUnload() {
+    console.log("index--->onUnload")
+  },
+
+  onShow() {
+    console.log("index--->onShow")
+  },
+
+  onHide() {
+    console.log("index--->onHide")
+  },
+  
+  onPageScroll(options) {
+    console.log(JSON.stringify(options))
+  },
+
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
     wx.getUserProfile({
