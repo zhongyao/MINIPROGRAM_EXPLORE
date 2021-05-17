@@ -1,21 +1,22 @@
-// pages/wxss/index.js
+// pages/js/index.js
+console.log('pages/js/index')
+var multiplyBy2 = require('./moduleA');
 
-console.log('pages/wxss/index.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      eleColor: 'blue',
-      eleFontsize: '40rpx'
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var result = multiplyBy2(4);
+    console.log("result:" + result)
   },
 
   /**

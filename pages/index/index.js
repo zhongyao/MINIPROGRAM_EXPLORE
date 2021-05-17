@@ -1,5 +1,6 @@
 // index.js
 // 获取应用实例
+console.log('pages/index/index')
 const app = getApp()
 
 Page({
