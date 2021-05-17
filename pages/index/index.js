@@ -4,6 +4,7 @@ console.log('pages/index/index')
 const app = getApp()
 
 Page({
+  //data参数是页面第一次渲染时从逻辑层传递到渲染层的数据。
   data: {
     motto: 'Hello World',
     userInfo: {},
@@ -20,8 +21,11 @@ Page({
   },
   onLoad() {
     if (wx.getUserProfile) {
+      //setData其一般调用格式是 setData(data, callback)，其中data是由多个key: value构成的Object对象。
       this.setData({
         canIUseGetUserProfile: true
+      }, function(){
+        //在这次setData对界面渲染完毕后触发
       })
     }
   },
