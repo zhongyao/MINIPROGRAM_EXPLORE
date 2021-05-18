@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/event/index",
+    "pages/component/index",
     "pages/wxml/index",
     "pages/index/index",
     "pages/js/index",

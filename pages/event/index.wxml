@@ -1,0 +1,18 @@
+<!--pages/event/index.wxml-->
+<text>pages/event/index.wxml</text>
+<!-- bindtap与catchtap的区别：
+     bindtap事件绑定不会阻止冒泡事件向上冒泡
+     catchtap事件绑定可以阻止冒泡事件向上冒泡 -->
+<view id="tapTest" data-hi="WeChat" bindtap="tapName"> Click me!</view>
+<view id="outer" catchtap="handletap">
+  <view id="inner">点击我</view>
+</view>
+
+<!-- ===== -->
+<!-- bind和capture-bind的含义分别代表事件的冒泡阶段和捕获阶段 -->
+<view class="outer-view" id="outer" bind:touchstart="handleTap1" capture-bind:touchstart="handleTap2">
+  outer view
+  <view class="inner-view" id="inner" bind:touchstart="handleTap3" capture-bind:touchstart="handleTap4">
+    inner view
+  </view>
+</view>
