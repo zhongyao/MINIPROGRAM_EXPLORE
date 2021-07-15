@@ -32,7 +32,5 @@ App({
     console.log("onError:" + msg)
   },
 
-  globalData: {
-    userInfo: null
-  }
+  globalData: 'I am global data'
 })
