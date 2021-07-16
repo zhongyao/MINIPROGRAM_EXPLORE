@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/https/index",
     "pages/interaction/index",
     "pages/event/index",
     "pages/component/index",
