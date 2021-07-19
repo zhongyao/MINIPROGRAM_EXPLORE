@@ -12,10 +12,28 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      wx.showLoading({
+        title: '网络请求'
+      })    
       wx.request({
         url: 'https://www.tianqiapi.com/api/?version=v6',
         success: function(res) {
-          console.log("--result--:" + JSON.stringify(res.data))
+          //成功
+          if(res.statusCode == 200) {
+            //服务器回包内容
+            console.log("--result--:" + JSON.stringify(res.data))
+          }
+        },
+        fail: function(res) {
+          //失败
+          wx.showToast({
+            title: '系统错误'
+          })
+        },
+        complete: function(res) {
+          //完成
+          wx.hideLoading();
+          console.log("--complete--:" + JSON.stringify(res.data));
         }
       })
   },
